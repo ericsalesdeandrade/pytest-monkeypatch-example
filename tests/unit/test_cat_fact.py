@@ -14,10 +14,13 @@ def test_cat_fact_w_monkeypatch(monkeypatch):
             self.url = "www.testurl.com"
 
         def json(self):
-            return {'data': ['Mother cats teach their kittens to use the litter box.']}
+            return {'data': ['Mother cats teach their '
+                             'kittens to use the litter box.']}
 
     def mock_get(*args, **kwargs):
         return MockResponse()
 
     monkeypatch.setattr(requests, 'get', mock_get)
-    assert get_cat_fact() == (200, {'data': ['Mother cats teach their kittens to use the litter box.']})
+    assert get_cat_fact() == (200, {'data': ['Mother cats '
+                                             'teach their kittens '
+                                             'to use the litter box.']})

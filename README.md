@@ -1,5 +1,8 @@
 # PyTest Monkeypatch Example
 
+This repo contains the sample code for the article - [The Ultimate Guide To Using Pytest Monkeypatch with 2 Code Examples](https://pytest-with-eric.com/pytest-best-practices/pytest-monkeypatch/)
+
+
 # Requirements
 * Python (3.10.6)
 
