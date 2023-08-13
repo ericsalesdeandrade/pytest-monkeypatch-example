@@ -22,3 +22,7 @@ def test_calc_price(monkeypatch):
     )  # Monkeypatching the function
     value = calc_price()
     assert value == 30
+
+    # Deleting Monkeypatched function
+    monkeypatch.delattr("tests.unit.test_price.tax_record_from_DW")
+    monkeypatch.delattr("tests.unit.test_price.price_record_from_DW")
