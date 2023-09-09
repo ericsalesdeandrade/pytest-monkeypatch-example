@@ -19,3 +19,9 @@ def delay():
     """
     print("5 Sec Delay....")
     time.sleep(5)
+
+
+# Random Example
+def my_string() -> str:
+    to_return = "ABC"
+    return to_return
