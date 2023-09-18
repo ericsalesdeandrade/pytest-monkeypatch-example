@@ -1,7 +1,7 @@
 import time
 
 
-def calculate_sum(a: int | float, b: int | float) -> str:
+def calculate_addition(a: int | float, b: int | float) -> str:
     """
     Function to calculate sum of 2 numbers.
     :param a: Number 1, Type - int/float
@@ -23,5 +23,4 @@ def delay():
 
 # Random Example
 def my_string() -> str:
-    to_return = "ABC"
-    return to_return
+    return "ABC"

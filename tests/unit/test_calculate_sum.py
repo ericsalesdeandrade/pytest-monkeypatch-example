@@ -1,4 +1,5 @@
-from monkeypatch_examples.calculate_sum import calculate_sum, my_string
+# from monkeypatch_examples.calculate_sum import calculate_addition, my_string
+from monkeypatch_examples import calculate_sum
 
 
 def test_calculate_sum_no_monkeypatch() -> None:
@@ -6,7 +7,7 @@ def test_calculate_sum_no_monkeypatch() -> None:
     Tests to calculate sum with NO Monkeypatch
     :return: None
     """
-    x = calculate_sum(2, 2)
+    x = calculate_sum.calculate_addition(2, 2)
     assert x == "Sum of the 2 Numbers is `4`"
 
 
@@ -22,18 +23,17 @@ def test_calculate_sum_w_monkeypatch(monkeypatch) -> None:
 
     monkeypatch.setattr("monkeypatch_examples.calculate_sum.delay", mock_return)
 
-    x = calculate_sum(2, 2)
+    x = calculate_sum.calculate_addition(2, 2)
     assert x == "Sum of the 2 Numbers is `4`"
 
 
 # Random Example
-def test_return_string(monkeypatch) -> None:
-    def mock_return_string():
+def test_return_string_monkeypatch(monkeypatch) -> None:
+    def monkeypatched_function():
         return "DEF"
 
-    monkeypatch.setattr(
-        "monkeypatch_examples.calculate_sum.my_string", mock_return_string
-    )
-    x = my_string()
-    print(x)
-    # assert x == "DEF"
+    monkeypatch.setattr(calculate_sum, "my_string", monkeypatched_function)
+
+    x = calculate_sum.my_string()
+
+    assert x == "DEF"
